@@ -5,4 +5,31 @@ function getComputerChoice() {
     return choice[randomIndex];
 }
 
-console.log(getComputerChoice());
+
+//function that plays a single round of rock paper scissors
+function playRound(playerSelection, computerSelection) {
+
+    //Convert playerSelection to lowercase
+    playerSelection = playerSelection.toLowerCase();
+
+    //Check for a tie
+    if (playerSelection === computerSelection) {
+        return "It's a tie!";
+    }
+
+    //Determine the winner
+    if (
+        (playerSelection === "rock" && computerSelection === "scissors") ||
+        (playerSelection === "paper" && computerSelection === "rock") ||
+        (playerSelection === "scissors" && computerSelection === "paper")
+    )   {
+        return "You win! " + playerSelection + " beats " + computerSelection;
+    }   else {
+        return "You lose! " + computerSelection + " beats " + playerSelection;
+    }
+}
+
+
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
