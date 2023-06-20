@@ -31,6 +31,7 @@ function playRound(playerSelection, computerSelection) {
 
 
 //Play a 5 round game that keeps score and reports a winner or loser at the end
+/*
 function game() {
     let playerScore = 0;
     let computerScore = 0;
@@ -60,10 +61,34 @@ function game() {
         console.log("It's a tie! The game ends in a draw.");
     }
 }
+*/
 
+//Link buttons to JavaScript
+const rockButton = document.getElementById('rock');
+const paperButton = document.getElementById('paper');
+const scissorsButton = document.getElementById('scissors');
+
+
+//Event listeners for each button
+rockButton.addEventListener('click', () => {
+    playRound('rock');
+});
+
+paperButton.addEventListener('click', () => {
+    playRound('paper');
+});
+
+scissorsButton.addEventListener('click', () => {
+    playRound('scissors');
+});
 
 //Start the game
 game();
+
+
+
+
+
 
 /*
 What's left from the one single round function and is not necessary now
