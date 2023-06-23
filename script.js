@@ -78,16 +78,25 @@ const scissorsButton = document.getElementById('scissors');
 
 //Event listeners for each button
 rockButton.addEventListener('click', () => {
-    playRound('rock');
-});
-
-paperButton.addEventListener('click', () => {
-    playRound('paper');
-});
-
-scissorsButton.addEventListener('click', () => {
-    playRound('scissors');
-});
+    const result = playRound('rock', getComputerChoice());
+    const roundResult = document.createElement('p');
+    roundResult.textContent = result;
+    document.body.appendChild(roundResult);
+  });
+  
+  paperButton.addEventListener('click', () => {
+    const result = playRound('paper', getComputerChoice());
+    const roundResult = document.createElement('p');
+    roundResult.textContent = result;
+    document.body.appendChild(roundResult);
+  });
+  
+  scissorsButton.addEventListener('click', () => {
+    const result = playRound('scissors', getComputerChoice());
+    const roundResult = document.createElement('p');
+    roundResult.textContent = result;
+    document.body.appendChild(roundResult);
+  });
 
 //Start the game
 game();
