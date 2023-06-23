@@ -55,12 +55,18 @@ function game() {
     const finalScore = document.getElementById('resultado');
     finalScore.innerHTML += `<pre>Final Score: Player ${playerScore} - ${computerScore} Computer</pre>`;
 
+//const roundResult = document.createElement('p');
+
+
     if (playerScore > computerScore) {
-        console.log("Congratulations! You win the game");
+        const gameResult = document.getElementById('resultado');
+        gameResult.innerHTML += `<pre>Congratulations! You win the game</pre>`;
     }   else if (playerScore < computerScore) {
-        console.log("Oops! You lose the game!");
+        const gameResult = document.getElementById('resultado');
+        gameResult.innerHTML += `<pre>Oops! You lose the game!</pre>`;
     }   else {
-        console.log("It's a tie! The game ends in a draw.");
+        const gameResult = document.getElementById('resultado');
+        gameResult.innerHTML += `<pre>It's a tie! The game ends in a draw.</pre>`;
     }
 }
 
