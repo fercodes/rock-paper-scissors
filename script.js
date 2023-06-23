@@ -1,4 +1,4 @@
-//function that returns rock, paper or scissors randomly 
+//function that returns rock, paper, or scissors randomly 
 function getComputerChoice() {
     let choice = ["rock", "paper", "scissors"];
     let randomIndex = Math.floor(Math.random() * choice.length);
@@ -27,8 +27,22 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//Start the game
-const playerSelection = prompt("Enter your choice (rock, paper, or scissors):");
-const computerSelection = getComputerChoice();
-const result = playRound(playerSelection, computerSelection);
-console.log(result);
+//Event listeners for each button
+const rockButton = document.getElementById('rock');
+const paperButton = document.getElementById('paper');
+const scissorsButton = document.getElementById('scissors');
+
+rockButton.addEventListener('click', () => {
+    const result = playRound('rock', getComputerChoice());
+    console.log(result);
+});
+
+paperButton.addEventListener('click', () => {
+    const result = playRound('paper', getComputerChoice());
+    console.log(result);
+});
+
+scissorsButton.addEventListener('click', () => {
+    const result = playRound('scissors', getComputerChoice());
+    console.log(result);
+});
