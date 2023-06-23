@@ -29,6 +29,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+
 //Play a 5 round game that keeps score and reports a winner or loser at the end
 function game() {
     let playerScore = 0;
@@ -40,10 +41,7 @@ function game() {
         const computerSelection = getComputerChoice();
         const result = playRound(playerSelection, computerSelection);
 
-
-//PROBLEM HERE. I'd like to getelementbyid to my div created in html, not create an element
-        const roundResult = document.getElementById('resultado');
-        roundResult.innerHTML += `<pre>Round ${round}: ${result}</pre>`;
+        console.log(`Round ${round}: ${result}`);
 
         if (result.startsWith("You win!")) {
             playerScore++;
@@ -51,52 +49,18 @@ function game() {
             computerScore++;
         }
     }
-//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-    const finalScore = document.getElementById('resultado');
-    finalScore.innerHTML += `<pre>Final Score: Player ${playerScore} - ${computerScore} Computer</pre>`;
 
-//const roundResult = document.createElement('p');
-
+    console.log(`Final Score: Player ${playerScore} - ${computerScore} Computer`);
 
     if (playerScore > computerScore) {
-        const gameResult = document.getElementById('resultado');
-        gameResult.innerHTML += `<pre>Congratulations! You win the game</pre>`;
+        console.log("Congratulations! You win the game");
     }   else if (playerScore < computerScore) {
-        const gameResult = document.getElementById('resultado');
-        gameResult.innerHTML += `<pre>Oops! You lose the game!</pre>`;
+        console.log("Oops! You lose the game!");
     }   else {
-        const gameResult = document.getElementById('resultado');
-        gameResult.innerHTML += `<pre>It's a tie! The game ends in a draw.</pre>`;
+        console.log("It's a tie! The game ends in a draw.");
     }
 }
 
-//Link buttons to JavaScript
-const rockButton = document.getElementById('rock');
-const paperButton = document.getElementById('paper');
-const scissorsButton = document.getElementById('scissors');
-
-
-//Event listeners for each button
-rockButton.addEventListener('click', () => {
-    const result = playRound('rock', getComputerChoice());
-    const roundResult = document.createElement('p');
-    roundResult.textContent = result;
-    document.body.appendChild(roundResult);
-  });
-  
-  paperButton.addEventListener('click', () => {
-    const result = playRound('paper', getComputerChoice());
-    const roundResult = document.createElement('p');
-    roundResult.textContent = result;
-    document.body.appendChild(roundResult);
-  });
-  
-  scissorsButton.addEventListener('click', () => {
-    const result = playRound('scissors', getComputerChoice());
-    const roundResult = document.createElement('p');
-    roundResult.textContent = result;
-    document.body.appendChild(roundResult);
-  });
 
 //Start the game
 game();
