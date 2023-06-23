@@ -31,18 +31,26 @@ function playRound(playerSelection, computerSelection) {
 const rockButton = document.getElementById('rock');
 const paperButton = document.getElementById('paper');
 const scissorsButton = document.getElementById('scissors');
+const resultDisplay = document.getElementById('result-display');
 
 rockButton.addEventListener('click', () => {
     const result = playRound('rock', getComputerChoice());
-    console.log(result);
+    updateResultDisplay(result);
 });
 
 paperButton.addEventListener('click', () => {
     const result = playRound('paper', getComputerChoice());
-    console.log(result);
+    updateResultDisplay(result);
 });
 
 scissorsButton.addEventListener('click', () => {
     const result = playRound('scissors', getComputerChoice());
-    console.log(result);
+    updateResultDisplay(result);
 });
+
+//Function to update the result display
+function updateResultDisplay(result) {
+    const resultElement = document.createElement('p');
+    resultElement.textContent = result;
+    resultDisplay.appendChild(resultElement);
+}
