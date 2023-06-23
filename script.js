@@ -29,9 +29,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-
 //Play a 5 round game that keeps score and reports a winner or loser at the end
-/*
 function game() {
     let playerScore = 0;
     let computerScore = 0;
@@ -42,7 +40,10 @@ function game() {
         const computerSelection = getComputerChoice();
         const result = playRound(playerSelection, computerSelection);
 
-        console.log(`Round ${round}: ${result}`);
+
+//PROBLEM HERE. I'd like to getelementbyid to my div created in html, not create an element
+        const roundResult = document.getElementById('resultado');
+        roundResult.innerHTML += `<pre>Round ${round}: ${result}</pre>`;
 
         if (result.startsWith("You win!")) {
             playerScore++;
@@ -50,8 +51,9 @@ function game() {
             computerScore++;
         }
     }
-
-    console.log(`Final Score: Player ${playerScore} - ${computerScore} Computer`);
+//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    const finalScore = document.getElementById('resultado');
+    finalScore.innerHTML += `<pre>Final Score: Player ${playerScore} - ${computerScore} Computer</pre>`;
 
     if (playerScore > computerScore) {
         console.log("Congratulations! You win the game");
@@ -61,7 +63,6 @@ function game() {
         console.log("It's a tie! The game ends in a draw.");
     }
 }
-*/
 
 //Link buttons to JavaScript
 const rockButton = document.getElementById('rock');
@@ -84,15 +85,3 @@ scissorsButton.addEventListener('click', () => {
 
 //Start the game
 game();
-
-
-
-
-
-
-/*
-What's left from the one single round function and is not necessary now
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
-*/
