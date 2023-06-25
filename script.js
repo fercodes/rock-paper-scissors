@@ -27,13 +27,15 @@ function playRound(playerSelection, computerSelection) {
 
 let playerScore = 0;
 let computerScore = 0;
+let round = 1;
 const scoreDisplay = document.getElementById('score-display');
+const resultDisplay = document.getElementById('result-display');
+const winnerDisplay = document.getElementById('winner-display');
 
 //Event listeners for each button
 const rockButton = document.getElementById('rock');
 const paperButton = document.getElementById('paper');
 const scissorsButton = document.getElementById('scissors');
-const resultDisplay = document.getElementById('result-display');
 
 rockButton.addEventListener('click', () => {
     const result = playRound('rock', getComputerChoice());
@@ -56,8 +58,9 @@ scissorsButton.addEventListener('click', () => {
 //Function to update the result display
 function updateResultDisplay(result) {
     const resultElement = document.createElement('p');
-    resultElement.textContent = result;
+    resultElement.textContent = "Round " + round + ": " + result;
     resultDisplay.appendChild(resultElement);
+    round++;
 }
 
 //Function to update the score display and check for a winner
@@ -71,17 +74,17 @@ function updateScore(result) {
     scoreDisplay.textContent = `Player: ${playerScore} - Computer: ${computerScore}`;
 
     if (playerScore === 5) {
-        announceWinner("Player");
+        announceWinner("Congratulations! You win the game");
     } else if (computerScore === 5) {
-        announceWinner("Computer");
+        announceWinner("Oops! You lose the game!");
     }
 }
 
 //Function to announce the winner
-function announceWinner(winner) {
+function announceWinner(message) {
     const winnerElement = document.createElement('p');
-    winnerElement.textContent = `Congratulations! ${winner} wins the game!`;
-    resultDisplay.appendChild(winnerElement);
+    winnerElement.textContent = message;
+    winnerDisplay.appendChild(winnerElement);
 
     // Disable buttons after the game is over
     rockButton.disabled = true;
